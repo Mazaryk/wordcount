@@ -1,0 +1,16 @@
+{
+    "name": "wordcount",
+    "version": "0.1.0",
+    "description": "count word frequency in an input file",
+    "main": "index.js",
+    "repository": "git@github.com:Mazaryk/wordcount.git",
+    "author": "Scott Eastman <scott@mazaryk.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.5.5"
+    },
+    "scripts": {
+        "test": "",
+        "run": "tsc"
+    }
+}
