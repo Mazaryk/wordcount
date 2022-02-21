@@ -10,7 +10,8 @@
         "lib/*"
     ],
     "publishConfig": {
-        "registry": "https://registry.npmjs.org"
+        "registry": "https://registry.npmjs.org",
+        "access": "public"
     },
     "devDependencies": {
         "@types/jest": "^27.4.0",
