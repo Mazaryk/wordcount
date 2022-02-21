@@ -4,13 +4,18 @@
         "module": "commonjs",
         "declaration": true,
         "outDir": "./bin",
-        "strict": true
+        "strict": true,
+        "moduleResolution": "node",
+        "paths" : {
+            "*" : ["./src/*"]
+        }
     },
     "include": [
-        "src"
+        "src",
+        "package.json"
     ],
     "exclude": [
         "node_modules",
-        "**/__tests__/*"
+        "tests"
     ]
 }
