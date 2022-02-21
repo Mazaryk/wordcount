@@ -7,7 +7,7 @@
     "author": "Scott Eastman <scott@mazaryk.com>",
     "license": "MIT",
     "files": [
-        "/lib"
+        "bin"
     ],
     "publishConfig": {
         "registry": "https://registry.npmjs.org",
@@ -34,12 +34,12 @@
     "scripts": {
         "test": "jest",
         "build": "tsc",
-        "run:cli": "node ./lib/index.js",
+        "run:cli": "node ./bin/index.js",
         "build:run": "yarn build && yarn run:cli",
         "lint": "lint-staged"
     },
     "bin": {
-        "wordcount": "lib/index.js"
+        "wordcount": "bin/index.js"
     },
     "husky": {
         "hooks": {
