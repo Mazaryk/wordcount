@@ -1,11 +1,17 @@
 {
     "name": "@mazaryk/wordcount",
-    "version": "0.1.0",
+    "version": "0.0.0",
     "description": "count word frequency in an input file",
     "main": "index.js",
     "repository": "git@github.com:Mazaryk/wordcount.git",
     "author": "Scott Eastman <scott@mazaryk.com>",
     "license": "MIT",
+    "files": [
+        "lib/*"
+    ],
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+    },
     "devDependencies": {
         "@types/jest": "^27.4.0",
         "eslint": "^8.9.0",
