@@ -16,6 +16,10 @@ export default class WordCount {
 
 		program.parse(argv);
 
+		// TODO - setup tests
+		//      - --version returns 0 exit code
+		//      - class interface tests
+
 	}
 
 	public execute() {

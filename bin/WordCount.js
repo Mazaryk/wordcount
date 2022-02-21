@@ -12,6 +12,9 @@ class WordCount {
             .description(appDescription)
             .version(appVersion);
         commander_1.program.parse(argv);
+        // TODO - setup tests
+        //      - --version returns 0 exit code
+        //      - class interface tests
     }
     execute() {
         // TODO - implement
