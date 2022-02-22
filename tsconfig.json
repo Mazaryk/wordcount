@@ -1,17 +1,29 @@
 {
     "compilerOptions": {
+        "baseUrl": "./",
+        "paths" : {
+            "*" : ["src/*", "tests/*"]
+        },
+        "lib": [
+            "es6",
+            "es2019",
+            "es2020"
+        ],
+        "noImplicitThis": true,
+        "allowJs": true,
         "target": "es6",
         "module": "commonjs",
-        "declaration": true,
-        "outDir": "./bin",
-        "strict": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": [
-        "src",
-        "tests"
+        "./src",
     ],
     "exclude": [
         "node_modules",
+        "tests"
     ]
 }

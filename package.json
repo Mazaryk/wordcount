@@ -51,5 +51,24 @@
         "*.ts": [
             "eslint --fix"
         ]
+    },
+    "jest": {
+        "testTimeout": 10000,
+        "transform": {
+            ".(ts|tsx)$": "ts-jest"
+        },
+        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
+        "moduleFileExtensions": [
+            "ts",
+            "js"
+        ],
+        "modulePathIgnorePatterns": [
+            "<rootDir>/bin/"
+        ],
+        "modulePaths": [
+            "<rootDir>/src/",
+            "<rootDir>/tests/"
+        ],
+        "testEnvironment": "node"
     }
 }
