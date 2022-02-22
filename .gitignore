@@ -4,3 +4,4 @@ node_modules
 *.js.map
 *.test.js
 .test_data
+package-lock.json

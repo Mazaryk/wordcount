@@ -103,6 +103,15 @@ describe('output', () => {
 
 		expect(stdout.toString()).toBe(expectedOutputCS);
 
+	});
+	it('should output case-sensitive counts when --case-sensitive is flagged', () => {
+
+		const { status, stdout } = execWordCount( ['--case-sensitive', inputFilePath]);
+
+		expect(status).toBe(0);
+
+		expect(stdout.toString()).toBe(expectedOutputCS);
+
 	})
 
 })
