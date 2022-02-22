@@ -19,7 +19,19 @@ $ wordcount ~/some/file.txt
 
 ## Options
 ```
-TBD
+$ wordcount --help
+Usage: wordcount [options] <file>
+
+Count word frequency in an input file
+
+Arguments:
+  file                  The file to parse
+
+Options:
+  -v, --version         output the version number
+  -c, --case-sensitive  case-sensitive word compare (default: false)
+  -h, --help            display help for command
+
 ```
 
 ### Assumptions
