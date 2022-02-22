@@ -16,7 +16,7 @@ class WordCount {
         this.program
             .name(appName)
             .description(appDescription)
-            .version(appVersion)
+            .version(appVersion, '-v, --version')
             .argument('<file>', 'The file to parse').action((arg) => this.sourceFilePath = arg);
         this.program.parse(this.argv);
         const options = this.program.opts();
@@ -31,3 +31,4 @@ class WordCount {
     }
 }
 exports.default = WordCount;
+//# sourceMappingURL=WordCount.js.map

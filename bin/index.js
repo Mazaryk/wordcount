@@ -6,3 +6,4 @@ const packageJsonPath = '../package.json';
 const packageJson = require(packageJsonPath);
 const wordCount = new WordCount_1.default(process.argv, packageJson);
 wordCount.execute();
+//# sourceMappingURL=index.js.map
