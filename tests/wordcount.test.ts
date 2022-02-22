@@ -57,7 +57,7 @@ describe('options', () => {
 
 describe('output', () => {
 
-	const inputFilePath = "test_input_1.txt";
+	const inputFilePath = ".test_data/test_input_1.txt";
 	const otherInputFilePath = inputFilePath.replace('1', '2');
 	const inputFileContent = "one Two two Three three three four four four four";
 	const expectedOutputCS = ["four: 4","three: 2", "one: 1", "Three: 1","two: 1","Two: 1", ""].join("\n"); // case sensitive
@@ -95,7 +95,7 @@ describe('output', () => {
 
 	});
 
-	it('should output case-insensitive counts when -c is flagged', () => {
+	it('should output case-sensitive counts when -c is flagged', () => {
 
 		const { status, stdout } = execWordCount( ['-c', inputFilePath]);
 

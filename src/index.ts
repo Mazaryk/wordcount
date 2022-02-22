@@ -27,7 +27,7 @@ program.parse(process.argv);
 // Set arg and flags
 //
 const sourceFilePath = program.args[0];
-const isCaseSensitive = program.opts()['case-sensitive'];
+const isCaseSensitive = program.opts().caseSensitive;
 
 //
 // Validate source file

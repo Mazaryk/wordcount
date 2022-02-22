@@ -3,3 +3,4 @@ node_modules
 .reference
 *.js.map
 *.test.js
+.test_data

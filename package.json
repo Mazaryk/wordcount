@@ -7,7 +7,7 @@
     "author": "Scott Eastman <scott@mazaryk.com>",
     "license": "MIT",
     "files": [
-        "bin"
+        "bin/index.js"
     ],
     "publishConfig": {
         "registry": "https://registry.npmjs.org",

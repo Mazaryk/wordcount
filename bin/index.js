@@ -23,7 +23,7 @@ commander_1.program.parse(process.argv);
 // Set arg and flags
 //
 const sourceFilePath = commander_1.program.args[0];
-const isCaseSensitive = commander_1.program.opts()['case-sensitive'];
+const isCaseSensitive = commander_1.program.opts().caseSensitive;
 //
 // Validate source file
 //
