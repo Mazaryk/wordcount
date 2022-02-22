@@ -1,6 +1,6 @@
 {
     "name": "@mazaryk/wordcount",
-    "version": "0.1.2",
+    "version": "1.0.0",
     "description": "Count word frequency in an input file",
     "main": "lib/index.js",
     "repository": "git@github.com:Mazaryk/wordcount.git",
