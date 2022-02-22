@@ -59,9 +59,13 @@ describe('output', () => {
 
 	const inputFilePath = "test_input_1.txt";
 	const otherInputFilePath = inputFilePath.replace('.txt', '2.txt');
-	const inputFileContent = "one two two three three three four four four four";
-	const expectedOutput = "four: 4\nthree: 3\ntwo: 2\none: 1\n";
+	const inputFileContent = "one Two two Three three three four four four four";
+	const expectedOutputCS = ["four: 4","three: 2", "one: 1", "Three: 1","two: 1","Two: 1"].join("\n"); // case sensitive
+	const expectedOutputCI = ["four: 4","three: 3","two: 2","one: 1"].join("\n"); // case insensitive
 
+	beforeEach(() => {
+		fs.writeFileSync(inputFilePath, inputFileContent);
+	})
 	afterEach(() => {
 		fs.unlinkSync(inputFilePath);
 		fs.unlinkSync(otherInputFilePath);
@@ -69,19 +73,15 @@ describe('output', () => {
 
 	it('should output the correct word count', () => {
 
-		fs.writeFileSync(inputFilePath, inputFileContent);
-
 		const { status, stdout } = execWordCount( [inputFilePath]);
 
 		expect(status).toBe(0);
 
-		expect(stdout.toString()).toBe(expectedOutput);
+		expect(stdout.toString()).toBe(expectedOutputCI);
 
 	});
 	it('should output identical word count for files with same word frequency', () => {
 
-
-		fs.writeFileSync(inputFilePath, inputFileContent);
 		fs.writeFileSync(otherInputFilePath, inputFileContent.split(' ').sort(() => 0.5 - Math.random()).join(' '));
 
 		const { status: status1, stdout: stdout1} = execWordCount( [inputFilePath]);
@@ -94,6 +94,15 @@ describe('output', () => {
 
 	});
 
+	it('should output case-insensitive counts when -c is flagged', () => {
+
+		const { status, stdout } = execWordCount( ['-c', inputFilePath]);
+
+		expect(status).toBe(0);
+
+		expect(stdout.toString()).toBe(expectedOutputCS);
+
+	})
 
 })
 

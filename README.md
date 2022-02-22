@@ -16,3 +16,13 @@ npm install -g @mazaryk/wordcount
 ```
 $ wordcount ~/some/file.txt
 ```
+
+## Options
+```
+TBD
+```
+
+### Assumptions
+
+- Words are counted in a case-insensitive manner by default. (use -c to make it case-sensitive)
+- Output is sorted by count. Matching counts are sorted alphabetically.
