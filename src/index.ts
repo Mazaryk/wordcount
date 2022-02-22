@@ -11,20 +11,27 @@ const appName = packageJson.name?.split('/').pop() || "(name missing)"; // drop 
 const appDescription = packageJson.description || "(description missing)";
 const appVersion = packageJson.version || "(version missing)";
 
-let sourceFilePath = "";
-
-// TODO - case-sensitive flag
-
+//
+// Define CLI Interface
+//
 program
-     .name(appName)
-     .description(appDescription)
-     .version(appVersion, '-v, --version')
-     .argument('<file>', 'The file to parse').action((arg) => sourceFilePath = arg);
+	.name(appName)
+	.description(appDescription)
+	.version(appVersion, '-v, --version')
+	.option('-c, --case-sensitive', 'case-sensitive word compare', false)
+	.argument('<file>', 'The file to parse');
 
 program.parse(process.argv);
 
-// const options = program.opts();
+//
+// Set arg and flags
+//
+const sourceFilePath = program.args[0];
+const isCaseSensitive = program.opts()['case-sensitive'];
 
+//
+// Validate source file
+//
 if ( ! fs.existsSync(sourceFilePath) ) {
 	console.error(`${sourceFilePath}: No such file`);
 	process.exit(1);
@@ -35,14 +42,20 @@ if ( ! fs.lstatSync(sourceFilePath).isFile() ) {
 	process.exit(1);
 }
 
+//
+// Parse input file
+//
 const dataRaw = fs.readFileSync(sourceFilePath).toString();
 
 // Replace non word chars (keep - and _) with space
-const data = dataRaw.replace(/[^A-Za-z\-_]/g, ' ').toLowerCase();
+const dataNormalized = dataRaw.replace(/[^A-Za-z\-_]/g, ' ');
+
+const data = isCaseSensitive ? dataNormalized : dataNormalized.toLowerCase();
 
 // split into words filtering empty entries
 const words = data.split(' ').filter( (value) => value.length);
 
+// count
 const frequencyUnsorted = words.reduce((a, w) => {
 
 	if ( ! a.has(w) )
@@ -52,13 +65,14 @@ const frequencyUnsorted = words.reduce((a, w) => {
 
 	return a;
 
-} , new Map<string, number>());
+}, new Map<string, number>());
 
+// convert to array sorted alpha asc first then by count desc
 const frequency = Array.from(frequencyUnsorted.entries())
                         .sort(([wordA],[wordB]) => wordA.localeCompare(wordB) )
                         .sort(([, countA],[, countB]) => countB - countA );
 
-
+// output the results
 console.log(frequency.map(([w, c])=> `${w}: ${c}`).join("\n"));
 
 process.exit(0);
