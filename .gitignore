@@ -2,3 +2,4 @@
 node_modules
 .reference
 *.js.map
+*.test.js

@@ -58,17 +58,17 @@ describe('options', () => {
 describe('output', () => {
 
 	const inputFilePath = "test_input_1.txt";
-	const otherInputFilePath = inputFilePath.replace('.txt', '2.txt');
+	const otherInputFilePath = inputFilePath.replace('1', '2');
 	const inputFileContent = "one Two two Three three three four four four four";
-	const expectedOutputCS = ["four: 4","three: 2", "one: 1", "Three: 1","two: 1","Two: 1"].join("\n"); // case sensitive
-	const expectedOutputCI = ["four: 4","three: 3","two: 2","one: 1"].join("\n"); // case insensitive
+	const expectedOutputCS = ["four: 4","three: 2", "one: 1", "Three: 1","two: 1","Two: 1", ""].join("\n"); // case sensitive
+	const expectedOutputCI = ["four: 4","three: 3","two: 2","one: 1", ""].join("\n"); // case insensitive
 
 	beforeEach(() => {
 		fs.writeFileSync(inputFilePath, inputFileContent);
 	})
 	afterEach(() => {
-		fs.unlinkSync(inputFilePath);
-		fs.unlinkSync(otherInputFilePath);
+		try { fs.unlinkSync(inputFilePath); } catch (err) {}
+		try { fs.unlinkSync(otherInputFilePath); } catch (err) {}
 	});
 
 	it('should output the correct word count', () => {
@@ -80,6 +80,7 @@ describe('output', () => {
 		expect(stdout.toString()).toBe(expectedOutputCI);
 
 	});
+
 	it('should output identical word count for files with same word frequency', () => {
 
 		fs.writeFileSync(otherInputFilePath, inputFileContent.split(' ').sort(() => 0.5 - Math.random()).join(' '));
@@ -90,7 +91,7 @@ describe('output', () => {
 		expect(status1).toBe(0);
 		expect(status2).toBe(0);
 
-		expect(stdout1.toString()).toBe(status2.toString());
+		expect(stdout1.toString()).toBe(stdout2.toString());
 
 	});
 
