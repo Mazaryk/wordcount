@@ -3,5 +3,5 @@ node_modules
 .reference
 *.js.map
 *.test.js
-tests/.mock_data/*
+tests/mock_data/*
 package-lock.json

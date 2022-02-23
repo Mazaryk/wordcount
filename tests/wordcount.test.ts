@@ -107,7 +107,7 @@ describe('options', () => {
 
 describe('output', () => {
 
-	const inputFilePath = "tests/.mock_data/test_input_1.txt";
+	const inputFilePath = "tests/mock_data/test_input_1.txt";
 	const inputFileContent = "one Two two Three three three four four four four";
 
 	const expectedOutputCS = ["four: 4", "three: 2", "one: 1", "Three: 1", "two: 1", "Two: 1", ""].join("\n"); // case sensitive
