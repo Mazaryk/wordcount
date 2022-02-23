@@ -36,11 +36,11 @@
         "commander": "^9.0.0"
     },
     "scripts": {
-        "test": "jest wordcount.test.js",
+        "test": "jest wordcount.test.ts",
         "build": "tsc",
         "lint": "lint-staged",
-        "link": "npm link && export $PATH",
-        "unlink": "npm unlink wordcount"
+        "link": "npm link",
+        "unlink": "npm rm --global @mazaryk/wordcount"
     },
     "bin": {
         "wordcount": "bin/index.js"
