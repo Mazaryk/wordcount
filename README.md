@@ -39,7 +39,7 @@ $ npm i -g @mazaryk/wordcount
 ### 2) Build From Source
 If you would like to build from source, you can clone the git repo, build, optionally run tests, and finally link the 'binary' in your PATH.
 ```
-$ git clone git@github.com:Mazaryk/wordcount.git
+$ git clone https://github.com/Mazaryk/wordcount.git
 ...
 $ cd wordcount
 $ yarn install
@@ -52,9 +52,9 @@ $ yarn run link
 ```
 After linking, the ```wordcount``` cli should be available in a new terminal.
 
-If preferred, once the project has been built, you can skip the linking step and run the script directly:
+If preferred, once the project has been built, you can skip the linking step and run the script directly with node:
 ```
-$ node bin/index.js [options] <file>
+$ node bin/index.js ./test/.mock_data/input.txt
 ```
 
 ### Removing/Unlinking
