@@ -1,6 +1,6 @@
 {
     "name": "@mazaryk/wordcount",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Count word frequency in an input file",
     "main": "lib/index.js",
     "repository": {
