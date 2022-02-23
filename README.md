@@ -2,34 +2,6 @@
 
 A simple cli word count tool
 
-## Installation
-
-If you have nodejs installed, you can install the cli globally.
-
-### yarn
-```
-yarn global add @mazaryk/wordcount
-```
-### npm
-```
-npm i -g @mazaryk/wordcount
-```
-
-If you would rather build from source and install, you can clone the git repo, build, optionally run tests, and finally link the 'binary' in your PATH.
-```
-$ git clone git@github.com:Mazaryk/wordcount.git
-...
-$ cd wordcount
-$ yarn install
-...
-$ yarn build
-...
-$ yarn test
-...
-$ yarn link
-```
-After linking, ```wordcount``` should be available in a new terminal.
-
 ## Usage
 ```
 $ wordcount ~/some/file.txt
@@ -52,9 +24,53 @@ Options:
 
 ```
 
+## Installation
 
+### 1) Use npm/yarn To Install Globally
+Assuming you have nodejs installed, you can install the cli globally:
+
+```
+$ yarn global add @mazaryk/wordcount
+```
+```
+$ npm i -g @mazaryk/wordcount
+```
+
+### 2) Build From Source
+If you would like to build from source, you can clone the git repo, build, optionally run tests, and finally link the 'binary' in your PATH.
+```
+$ git clone git@github.com:Mazaryk/wordcount.git
+...
+$ cd wordcount
+$ yarn install
+...
+$ yarn run build
+...
+$ yarn run test
+...
+$ yarn run link
+```
+After linking, the ```wordcount``` cli should be available in a new terminal.
+
+If preferred, once the project has been built, you can skip the linking step and run the script directly:
+```
+$ node bin/index.js [options] <file>
+```
+
+### Removing/Unlinking
+If you installed globally you can remove the cli:
+```
+$ yarn global remove @mazaryk/wordcount
+```
+```
+$ npm uninstall -g @mazaryk/wordcount
+```
+
+If you built from source and linked, you can remove ```wordcount``` from your path by unlinking:
+```
+$ yarn run unlink
+```
 
 ### Assumptions
-
 - Words are counted in a case-insensitive manner by default. (use -c to make it case-sensitive)
 - Output is sorted by count. Matching counts are sorted alphabetically.
