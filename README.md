@@ -55,7 +55,7 @@ After linking, the ```wordcount``` cli should be available in a new terminal.
 
 If preferred, once the project has been built, you can skip the linking step and run the script directly with node:
 ```
-$ node bin/index.js ./test/.mock_data/input.txt
+$ node bin/index.js ./test/mock_data/input.txt
 ```
 
 ### Removing/Unlinking
