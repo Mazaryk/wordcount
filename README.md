@@ -26,6 +26,7 @@ Options:
 
 ## Installation
 
+You have two options for installing the application: 1) npm/yarn global install, or 2) build from source.
 ### 1) Use npm/yarn To Install Globally
 Assuming you have nodejs installed, you can install the cli globally:
 
@@ -37,7 +38,7 @@ $ npm i -g @mazaryk/wordcount
 ```
 
 ### 2) Build From Source
-If you would like to build from source, you can clone the git repo, build, optionally run tests, and finally link the 'binary' in your PATH.
+If you would like to build from source, you can clone the git repo, build, optionally run tests, and finally link the application in your $PATH.
 ```
 $ git clone https://github.com/Mazaryk/wordcount.git
 ...
